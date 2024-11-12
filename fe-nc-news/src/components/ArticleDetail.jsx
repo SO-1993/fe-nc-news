@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import CommentList from "./CommentList";
 
 function ArticleDetail() {
   const { article_id } = useParams();
@@ -34,6 +35,8 @@ function ArticleDetail() {
   return (
     <div>
       <ArticleCard article={article} />
+      <CommentList article_id={article_id} />
+      <p>{article.body}</p>
     </div>
   );
 }
