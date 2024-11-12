@@ -8,3 +8,5 @@ const fetchArticles = () => {
     return response.data.articles;
   });
 };
+
+export { fetchArticles };
