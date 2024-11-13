@@ -32,4 +32,22 @@ const voteOnArticle = (article_id, inc_votes) => {
     });
 };
 
-export { fetchArticles, fetchArticleById, fetchComments, voteOnArticle };
+const postComment = (articleId, commentData) => {
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      // author: author,
+      // body: body,
+    })
+    .then((response) => {
+      return response.data.comments;
+    });
+};
+
+export {
+  fetchArticles,
+  fetchArticleById,
+  fetchComments,
+  voteOnArticle,
+  postComment,
+  // deleteComment
+};

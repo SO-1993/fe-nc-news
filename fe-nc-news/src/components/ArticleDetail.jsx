@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import CommentList from "./CommentList";
-import VoteButton from "./VoteButton"; // Import the VoteButton
+import VoteButton from "./VoteButton";
+import CommentInput from "./CommentInput";
 
 function ArticleDetail() {
   const { article_id } = useParams();
@@ -47,8 +48,8 @@ function ArticleDetail() {
         {/* <img className={styles.img}>src={article.article_img_url} /</img> */}
       </div>
       <VoteButton article_id={article_id} setVotes={setVotes} />{" "}
-      {/* Pass initial votes */}
       <CommentList article_id={article_id} />
+      <CommentInput articleId={article_id} />
       <p>{article.body}</p>
     </div>
   );
