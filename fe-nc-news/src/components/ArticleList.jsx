@@ -23,7 +23,7 @@ function ArticleList() {
   }, []);
 
   if (error) {
-    return <p> There has been an error!</p>;
+    return <p> There has been an error!!!</p>;
   }
 
   if (loading) {

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const api = axios.create({
   baseURL: "https://nc-news-73me.onrender.com/api",
 });
@@ -21,4 +22,14 @@ const fetchComments = (article_id) => {
   });
 };
 
-export { fetchArticles, fetchArticleById, fetchComments };
+const voteOnArticle = (article_id, inc_votes) => {
+  return api
+    .patch(`/articles/${article_id}`, {
+      inc_votes: inc_votes,
+    })
+    .then((response) => {
+      return response.data.article;
+    });
+};
+
+export { fetchArticles, fetchArticleById, fetchComments, voteOnArticle };
